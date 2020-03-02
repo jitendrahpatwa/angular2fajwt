@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "cryptoangular": {
+    "testappauth": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/cryptoangular",
+            "outputPath": "dist/testappauth",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -28,7 +28,8 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.scss"
+              "src/styles.scss",
+              "node_modules/ngx-toastr/toastr.css"
             ],
             "scripts": []
           },
@@ -67,18 +68,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "cryptoangular:build"
+            "browserTarget": "testappauth:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "cryptoangular:build:production"
+              "browserTarget": "testappauth:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "cryptoangular:build"
+            "browserTarget": "testappauth:build"
           }
         },
         "test": {
@@ -115,15 +116,15 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "cryptoangular:serve"
+            "devServerTarget": "testappauth:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "cryptoangular:serve:production"
+              "devServerTarget": "testappauth:serve:production"
             }
           }
         }
       }
     }},
-  "defaultProject": "cryptoangular"
+  "defaultProject": "testappauth"
 }

@@ -1,0 +1,32 @@
+<!-- Second Container -->
+<div class="container-fluid bg-2 text-center">
+  <h3 class="margin">Welcome</h3>
+  <p> {{data?.name}} </p>
+  <p> {{data?.email}} </p>
+
+  <p>2 Factor Authentication is {{data['usergfa'] == 'true' ? 'enabled' : 'disabled'}}.</p>
+
+  <ng-container *ngIf="data['usergfa'] == 'false'">
+
+  	<div class="row align-item-center justify-content-center col-md-offset-4">
+  		<div class="col-md-5">
+		  	<p>Enable by scaning below QR code</p>
+		  	<img [src]="data['qa']">
+		  	<form  [formGroup]="form" (submit)="submit(form)">
+			  <div class="form-group">
+			    <label for="otp">2FA OTP:</label>
+			    <input type="password" class="form-control" id="otp" formControlName="code">
+			  </div>
+			  <button type="submit" class="btn btn-default">Submit</button>
+			</form>
+		</div>
+	</div>
+  </ng-container>
+
+
+  <br>
+  <a (click)="logout()" class="btn btn-default btn-lg">
+    <span></span> Logout
+  </a>
+</div>
+
